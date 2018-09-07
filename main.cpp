@@ -1,6 +1,6 @@
 #include <iostream>
-//#include "FindGreatestSumOfSubArray.h"
-#include "FindGreatestSumOfSubArrayExamp.h"
+#include "FindGreatestSumOfSubArray.h"
+//#include "FindGreatestSumOfSubArrayExamp.h"
 #include <vector>
 void test1() {
 	cout<<"Test1."<<endl;

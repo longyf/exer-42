@@ -10,28 +10,28 @@ int FindGreatestSumOfSubArray(vector<int> &array) {
 
 	int tempBegin = 0;
 	int tempEnd = 0;
-	int tempSum = array[0];
-	int begin = tempBegin;
-	int end = tempEnd;
-	int largest = tempSum;
-	while (tempEnd != array.size() - 1) {
-		cout<<tempBegin<<" "<<tempEnd<<" "<<tempSum<<" "<<largest<<endl;
-		tempEnd++;
-		tempSum += array[tempEnd];
+	int tempSum = 0;
+	int largest = 0x80000000;//这个地方又忘记啦！
+	int begin = 0;
+	int end = 0;
+
+	for (auto index = 0; index != array.size(); index++) {
+		tempEnd = index;
 		if (tempSum < 0) {
-			cout<<tempSum<<" "<<largest<<endl;
-			if (tempSum > largest) {
-				largest = tempSum;
-			}
-			tempBegin = tempEnd;
-			tempSum = 0;
+			tempSum = array[index];
+			tempBegin = index;//
 		}
 		else {
-			if (tempSum > largest) {
-				largest = tempSum;
-			}
+			tempSum += array[index];
+		}
+
+		if (tempSum > largest) {
+			largest = tempSum;
+			begin = tempBegin;//
+			end = tempEnd;
 		}
 	}
+	cout<<"The array starts at "<<begin<<" and ends at "<<end<<"."<<endl;
 	return largest;
 }
 #endif
